@@ -1,0 +1,91 @@
+$schema: https://learning-contents.org/schemas/parsons-puzzles/0.1.0
+license: MIT
+locale: en-US
+id: pp_bank_account_html
+source: index.html
+title: Bank Account Card Structure
+description: Arrange the HTML blocks to correctly construct the Bank Account UI card.
+authors:
+  - first: Jone
+    last: Doe
+    email: jone.doe@example.com
+    affiliation: University of John Doe
+pedagogy:
+  activity: parsons-puzzles
+  difficulty: novice
+  prereq_topics: [html5, tags]
+  topics: [html5, tags, semantic-web]
+runtime:
+  language: html
+statement: |
+  Rearrange the blocks to correctly assemble the Bank Account card UI component. Make sure to:
+  1. Position the header with owner and active status badge at the top
+  2. Place the current balance body section in the middle
+  3. Place the action buttons at the bottom
+executions:
+  - title: Rendered Card Component
+    stdout: |-
+      Bob Active Current Balance $250.00 Deposit $100 Withdraw $50
+    console: |-
+      Bob Active Current Balance $250.00 Deposit $100 Withdraw $50
+elements:
+  - type: block
+    location:
+      snippet: |2-
+          <div class="account-header">
+            <h2 class="account-owner">Bob</h2>
+            <span class="account-badge">Active</span>
+          </div>
+    choices:
+      - snippet: |-
+          <div class="account-header">
+            <h2 class="account-owner">Bob</h2>
+            <span class="account-badge">Active</span>
+          </div>
+        role: solution
+        explanations:
+          - body: |
+              Correctly wraps the heading `<h2>` and status badge `<span>` inside the `account-header` division.
+  - type: block
+    location:
+      snippet: |2-
+          <div class="account-body">
+            <label class="balance-label">Current Balance</label>
+            <div class="balance-amount">$250.00</div>
+          </div>
+    choices:
+      - snippet: |-
+          <div class="account-body">
+            <label class="balance-label">Current Balance</label>
+            <div class="balance-amount">$250.00</div>
+          </div>
+        role: solution
+        explanations:
+          - body: |
+              Correctly pairs the balance descriptor label with the numerical balance amount display.
+  - type: block
+    location:
+      snippet: |2-
+          <div class="account-actions">
+            <button class="btn btn-deposit" id="btn-deposit">Deposit $100</button>
+            <button class="btn btn-withdraw" id="btn-withdraw">Withdraw $50</button>
+          </div>
+    choices:
+      - snippet: |-
+          <div class="account-actions">
+            <button class="btn btn-deposit" id="btn-deposit">Deposit $100</button>
+            <button class="btn btn-withdraw" id="btn-withdraw">Withdraw $50</button>
+          </div>
+        role: solution
+        explanations:
+          - body: |
+              Correctly wraps both transaction action buttons inside the `account-actions` container.
+      - snippet: |-
+          <div class="account-actions">
+            <input type="button" value="Deposit $100">
+            <input type="button" value="Withdraw $50">
+          </div>
+        role: distractor
+        explanations:
+          - body: |
+              While `<input type="button">` exists, modern standard web design prefers `<button>` for richer content and CSS pseudo-element customization.

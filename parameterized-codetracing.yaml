@@ -1,0 +1,33 @@
+$schema: https://learning-contents.org/schemas/parameterized-code-tracing/0.1.0
+license: MIT
+locale: en-US
+id: parameterized_code_tracing_html
+source: index.html
+title: Parameterized Bank Card Inspection
+description: Trace and inspect the rendered text content of the HTML component.
+authors:
+  - first: First
+    last: Last
+    email: author@example.com
+    affiliation: University
+pedagogy:
+  activity: parameterized-code-tracing
+  difficulty: novice
+  prereq_topics: [basics]
+  topics: [basics, html5, dom]
+runtime:
+  language: html
+statement: |
+  Determine the exact rendered text output of the Bank Account HTML card component.
+  The markup defines the owner name, active status, current balance amount, and action button labels.
+elements:
+  - type: parameter
+    location:
+      context: '<h2 class="account-owner">Bob</h2>'
+      snippet: "Bob"
+    values: ['Bob', 'Alice', 'Charlie']
+  - type: parameter
+    location:
+      context: '<div class="balance-amount">$250.00</div>'
+      snippet: "$250.00"
+    values: ['$250.00', '$500.00', '$1000.00']

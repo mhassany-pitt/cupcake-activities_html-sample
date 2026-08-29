@@ -1,0 +1,48 @@
+$schema: https://learning-contents.org/schemas/worked-example/0.1.0
+source: index.html
+license: MIT
+locale: en-US
+id: we_bank_account_html
+title: Bank Account UI Card
+description: Learn how to structure a semantic Bank Account UI component using HTML5 elements.
+authors:
+  - first: Jone
+    last: Doe
+    email: jone.doe@example.com
+    affiliation: University of John Doe
+pedagogy:
+  activity: worked-example
+  difficulty: novice
+  prereq_topics: []
+  topics:
+    - html5
+    - semantic-web
+    - dom
+runtime:
+  language: html
+statement: |
+  This worked example demonstrates how to build an accessible and semantic **Bank Account Card** component in HTML5. We will examine:
+  1. Semantic containers and headers (`<div>`, `<h2>`, `<span>`)
+  2. Informational content and labels (`<label>`, `<div>`)
+  3. Interactive transaction actions (`<button>`)
+executions:
+  - title: Rendered Card Component
+    stdin: []
+    stdout: |-
+      Bob Active Current Balance $250.00 Deposit $100 Withdraw $50
+    console: |-
+      Bob Active Current Balance $250.00 Deposit $100 Withdraw $50
+    status: pass
+elements:
+  - type: explanation
+    location:
+      snippet: "<div class=\"bank-card\" id=\"account-card\">"
+    explanations:
+      - body: |
+          The root container establishes the component boundary. We give it both a descriptive CSS class (`bank-card`) and a unique identifier (`account-card`) for styling and JavaScript interactivity.
+  - type: explanation
+    location:
+      snippet: "<button class=\"btn btn-deposit\" id=\"btn-deposit\">Deposit $100</button>"
+    explanations:
+      - body: |
+          Interactive buttons should always use the semantic `<button>` element rather than clickable `<div>` elements, ensuring full keyboard navigation and screen reader accessibility.

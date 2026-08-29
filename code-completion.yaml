@@ -1,0 +1,68 @@
+$schema: https://learning-contents.org/schemas/code-completion/0.1.0
+source: index.html
+license: MIT
+locale: en-US
+id: cc_bank_account_html
+title: Complete the Bank Account Card
+description: Fill in the missing HTML elements and attributes to complete the component.
+authors:
+  - first: Jone
+    last: Doe
+    email: jone.doe@example.com
+    affiliation: University of John Doe
+pedagogy:
+  activity: code-completion
+  difficulty: novice
+  prereq_topics: []
+  topics:
+    - html5
+    - semantic-web
+runtime:
+  language: html
+statement: |
+  Complete the `BankAccount` HTML component markup by filling in the missing tags and text. Focus on:
+  - Specifying the account owner heading (`<h2>`)
+  - Specifying the current balance label and amount
+  - Ensuring the deposit action uses a semantic `<button>`
+executions:
+  - title: Rendered Card Component
+    stdin: []
+    stdout: |-
+      Bob Active Current Balance $250.00 Deposit $100 Withdraw $50
+    console: |-
+      Bob Active Current Balance $250.00 Deposit $100 Withdraw $50
+    stderr: ""
+    status: pass
+elements:
+  - type: blank
+    location:
+      context: "<h2 class=\"account-owner\">Bob</h2>"
+      snippet: "<h2 class=\"account-owner\">Bob</h2>"
+      nth: 1
+    choices:
+      - snippet: "<h2 class=\"account-owner\">Bob</h2>"
+        role: solution
+        explanations:
+          - body: |
+              Use a semantic `<h2>` heading element with the descriptive class `account-owner` to display the account holder's name.
+      - snippet: "<div class=\"account-owner\">Bob</div>"
+        role: distractor
+        explanations:
+          - body: |
+              A generic `<div>` loses important document heading hierarchy and semantic accessibility for screen readers.
+  - type: blank
+    location:
+      context: "<button class=\"btn btn-deposit\" id=\"btn-deposit\">Deposit $100</button>"
+      snippet: "<button class=\"btn btn-deposit\" id=\"btn-deposit\">Deposit $100</button>"
+      nth: 1
+    choices:
+      - snippet: "<button class=\"btn btn-deposit\" id=\"btn-deposit\">Deposit $100</button>"
+        role: solution
+        explanations:
+          - body: |
+              Use a native `<button>` element with appropriate CSS classes and ID to enable interactive deposit transactions.
+      - snippet: "<a href=\"#\" class=\"btn btn-deposit\">Deposit $100</a>"
+        role: distractor
+        explanations:
+          - body: |
+              Anchor tags (`<a>`) represent navigational hyperlinks to other URLs, whereas actions triggering state changes (like deposits) should use `<button>`.

@@ -1,0 +1,54 @@
+$schema: https://learning-contents.org/schemas/multiple-choice-question/0.1.0
+license: MIT
+locale: en-US
+id: mcq_html_button_semantics
+title: Semantic HTML Action Elements
+description: Identify the correct semantic HTML element for triggering client-side actions.
+authors:
+  - first: Jone
+    last: Doe
+    email: jone.doe@example.com
+    affiliation: University of John Doe
+pedagogy:
+  activity: multiple-choice-question
+  difficulty: novice
+  prereq_topics:
+    - html5
+  topics:
+    - html5
+    - accessibility
+    - semantics
+include_choices: 3
+question: |
+  In modern web development, which HTML element should be used to create interactive controls (such as "Deposit" or "Withdraw") that trigger in-page actions without navigating to a new URL?
+choices:
+  - body: |
+      ```html
+      <button type="button" class="btn btn-deposit">Deposit $100</button>
+      ```
+    role: solution
+    include: always
+    order: 1
+    explanations:
+      - body: |
+          Correct. The `<button>` element is the native, semantic HTML element designed for in-page actions. It includes built-in keyboard accessibility (Enter/Space key activation), focus management, and ARIA roles.
+  - body: |
+      ```html
+      <a href="#" class="btn btn-deposit">Deposit $100</a>
+      ```
+    role: distractor
+    explanations:
+      - body: |
+          Incorrect. The `<a>` element represents a hyperlink intended to navigate between pages or URL fragment identifiers. Using `href="#"` for in-page actions harms keyboard navigation and assistive technology users.
+  - body: |
+      ```html
+      <div onclick="deposit()" class="btn btn-deposit">Deposit $100</div>
+      ```
+    role: distractor
+    explanations:
+      - body: |
+          Incorrect. A `<div>` has no inherent semantic meaning, is not focusable by keyboard by default, and requires manual `tabindex` and ARIA attributes to be accessible.
+  - body: None
+    role: distractor
+    include: always
+    order: 2

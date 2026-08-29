@@ -1,0 +1,59 @@
+$schema: https://learning-contents.org/schemas/free-coding/0.1.0
+source: index.html
+license: MIT
+locale: en-US
+id: free_coding_bank_account_html
+title: Customize the Bank Account Card
+description: Implement and customize account information and action buttons in HTML.
+authors:
+  - first: Jone
+    last: Doe
+    email: jone.doe@example.com
+    affiliation: University of John Doe
+pedagogy:
+  activity: free-coding
+  difficulty: novice
+  prereq_topics: [html5]
+  topics: [html5, tags, forms]
+runtime:
+  language: html
+statement: |
+  Customize the `BankAccount` HTML card component by editing the account owner and balance fields, and ensuring that all interactive buttons are properly labeled.
+executions:
+  - title: Rendered Card Component
+    stdin: []
+    stdout: |-
+      Bob Active Current Balance $250.00 Deposit $100 Withdraw $50
+    console: |-
+      Bob Active Current Balance $250.00 Deposit $100 Withdraw $50
+    status: pass
+elements:
+  - type: locked
+    location:
+      snippet: |-
+        <div class="bank-card" id="account-card">
+  - type: editable
+    location:
+      snippet: |-
+        <div class="account-header">
+            <h2 class="account-owner">Bob</h2>
+            <span class="account-badge">Active</span>
+          </div>
+          <div class="account-body">
+            <label class="balance-label">Current Balance</label>
+            <div class="balance-amount">$250.00</div>
+          </div>
+          <div class="account-actions">
+            <button class="btn btn-deposit" id="btn-deposit">Deposit $100</button>
+            <button class="btn btn-withdraw" id="btn-withdraw">Withdraw $50</button>
+          </div>
+    placeholder: |-
+      <!-- Customize account header, balance, and action buttons here -->
+testcases:
+  - title: Card Render Test
+    visible: true
+    stdin: []
+    stdout: |-
+      Bob Active Current Balance $250.00 Deposit $100 Withdraw $50
+    console: |-
+      Bob Active Current Balance $250.00 Deposit $100 Withdraw $50
