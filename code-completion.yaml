@@ -111,29 +111,29 @@ elements:
   - type: blank
     location:
       context: "<p class=\"balance-output\">Balance: 250</p>"
-      snippet: "250"
+      snippet: "balance-output"
       nth: 1
     choices:
-      - snippet: "250"
+      - snippet: "balance-output"
         role: solution
         explanations:
           - body: |
-              Correct! Starting balance (200) + deposit (100) - withdrawal (50) equals 250.
-      - snippet: "150"
+              Correct! The `.balance-output` class formats the resulting account balance with prominent bold styling.
+      - snippet: "account-owner"
         role: distractor
         explanations:
           - body: |
-              Incorrect. This would subtract the deposit instead of adding it (200 - 100 + 50 = 150).
-      - snippet: "300"
+              Incorrect. `.account-owner` is intended for the card heading, not for the balance readout.
+      - snippet: "transaction-deposit"
         role: distractor
         explanations:
           - body: |
-              Incorrect. 300 only accounts for the deposit (200 + 100) while omitting the withdrawal of 50.
-      - snippet: "200"
+              Incorrect. `.transaction-deposit` is used for individual deposit logs, not the total balance display.
+      - snippet: "account-actions"
         role: distractor
         explanations:
           - body: |
-              Incorrect. 200 is the initial balance before any transactions occurred.
+              Incorrect. `.account-actions` is a container class for grouping action buttons.
   - type: blank
     location:
       context: "<button class=\"btn btn-deposit\" id=\"btn-deposit\">Deposit 100</button>"
