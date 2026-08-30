@@ -96,15 +96,6 @@ elements:
         explanations:
           - body: |
               Correct! Lists the chronological events with the deposit of 100 preceding the withdrawal of 50.
-      - snippet: |-
-          <div class="account-transactions">
-            <p class="transaction-withdraw">Withdrew 50</p>
-            <p class="transaction-deposit">Deposited 100</p>
-          </div>
-        role: distractor
-        explanations:
-          - body: |
-              Incorrect. The transaction sequence has been inverted: the deposit occurred before the withdrawal.
   - type: block
     group: card-sections
     location:
@@ -121,14 +112,6 @@ elements:
         explanations:
           - body: |
               Correct! Displays the final calculated balance of 250.
-      - snippet: |-
-          <div class="account-balance">
-            <p class="balance-output">Balance: 150</p>
-          </div>
-        role: distractor
-        explanations:
-          - body: |
-              Incorrect. 150 is the wrong balance amount (200 + 100 - 50 = 250).
   - type: block
     group: card-sections
     location:
@@ -147,12 +130,3 @@ elements:
         explanations:
           - body: |
               Correct! Provides native interactive `<button>` elements with descriptive IDs.
-      - snippet: |-
-          <div class="account-actions">
-            <div class="btn btn-deposit" id="btn-deposit">Deposit 100</div>
-            <div class="btn btn-withdraw" id="btn-withdraw">Withdraw 50</div>
-          </div>
-        role: distractor
-        explanations:
-          - body: |
-              Incorrect. Using generic `<div>` tags for interactive controls causes severe accessibility problems because they lack keyboard focus and button semantics.
