@@ -142,10 +142,8 @@ elements:
           </div>
     placeholder: |-
       <!-- 1. Add account-transactions with deposit and withdrawal paragraphs -->
-
-          <!-- 2. Add account-balance with balance-output paragraph -->
-
-          <!-- 3. Add account-actions with deposit and withdraw buttons -->
+      <!-- 2. Add account-balance with balance-output paragraph -->
+      <!-- 3. Add account-actions with deposit and withdraw buttons -->
   - type: locked
     location:
       snippet: </div>
