@@ -1,25 +1,35 @@
 $schema: https://learning-contents.org/schemas/parameterized-code-tracing/0.1.0
 license: MIT
 locale: en-US
-id: parameterized_code_tracing_html
+id: parameterized_code_tracing_bank_account
 source: index.html
-title: Parameterized Bank Card Inspection
-description: Trace and inspect the rendered text content of the HTML component.
+title: Trace HTML Bank Account Card Rendered Output
+description: Trace and inspect the rendered text content of the HTML bank account component as owner name, deposit amounts, and balances vary.
 authors:
-  - first: First
-    last: Last
-    email: author@example.com
-    affiliation: University
+  - first: Jone
+    last: Doe
+    email: jone.doe@example.com
+    affiliation: University of John Doe
 pedagogy:
   activity: parameterized-code-tracing
   difficulty: novice
-  prereq_topics: [basics]
-  topics: [basics, html5, dom]
+  prereq_topics:
+    - html5-basics
+    - semantic-html
+  topics:
+    - html5
+    - semantics
+    - dom
+    - ui-components
+    - state-tracing
 runtime:
   language: html
 statement: |
   Determine the exact rendered text output of the Bank Account HTML card component.
-  The markup defines the owner name, active status, current balance amount, and action button labels.
+  Pay close attention to:
+  * The owner name rendered in the `<h2>` header.
+  * The transaction amounts logged in the `<p class="transaction-deposit">` element.
+  * The final balance string rendered in `<p class="balance-output">`.
 elements:
   - type: parameter
     location:
@@ -28,6 +38,11 @@ elements:
     values: ['Bob', 'Alice', 'Charlie']
   - type: parameter
     location:
-      context: '<div class="balance-amount">$250.00</div>'
-      snippet: "$250.00"
-    values: ['$250.00', '$500.00', '$1000.00']
+      context: '<p class="transaction-deposit">Deposited 100</p>'
+      snippet: "100"
+    values: ['50', '100', '200']
+  - type: parameter
+    location:
+      context: '<p class="balance-output">Balance: 250</p>'
+      snippet: "250"
+    values: ['150', '250', '350']

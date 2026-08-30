@@ -1,10 +1,10 @@
 $schema: https://learning-contents.org/schemas/parsons-puzzles/0.1.0
 license: MIT
 locale: en-US
-id: pp_bank_account_html
+id: pp_bank_account
 source: index.html
-title: Bank Account Card Structure
-description: Arrange the HTML blocks to correctly construct the Bank Account UI card.
+title: Bank Account HTML Component Structure
+description: Rearrange the HTML blocks to build a valid, semantic bank account card component with header, transactions, balance, and action buttons.
 authors:
   - first: Jone
     last: Doe
@@ -13,79 +13,146 @@ authors:
 pedagogy:
   activity: parsons-puzzles
   difficulty: novice
-  prereq_topics: [html5, tags]
-  topics: [html5, tags, semantic-web]
+  prereq_topics:
+    - html5-basics
+    - semantic-html
+  topics:
+    - html5
+    - semantics
+    - accessibility
+    - dom
+    - ui-components
 runtime:
   language: html
 statement: |
-  Rearrange the blocks to correctly assemble the Bank Account card UI component. Make sure to:
-  1. Position the header with owner and active status badge at the top
-  2. Place the current balance body section in the middle
-  3. Place the action buttons at the bottom
+  Rearrange the HTML blocks to correctly construct the `BankAccount` card component.
+  Make sure to:
+  1. Place the account owner heading in the card header.
+  2. Record the chronological transactions (deposit first, then withdrawal).
+  3. Display the computed final balance.
+  4. Include accessible interactive action buttons.
 executions:
-  - title: Rendered Card Component
+  - title: Standard Transaction
     stdout: |-
-      Bob Active Current Balance $250.00 Deposit $100 Withdraw $50
+      Bob
+      Deposited 100
+      Withdrew 50
+      Balance: 250
+      Deposit 100
+      Withdraw 50
     console: |-
-      Bob Active Current Balance $250.00 Deposit $100 Withdraw $50
+      Bob
+      Deposited 100
+      Withdrew 50
+      Balance: 250
+      Deposit 100
+      Withdraw 50
+    status: pass
 elements:
-  - type: block
+  - type: fold
     location:
-      snippet: |2-
+      pattern: "<style>[\\s\\S]*?<\\/style>"
+    summary: "🎨 CSS Styles (<style>)"
+    collapsed: true
+  - type: block
+    group: card-sections
+    location:
+      snippet: |-
           <div class="account-header">
             <h2 class="account-owner">Bob</h2>
-            <span class="account-badge">Active</span>
           </div>
     choices:
       - snippet: |-
           <div class="account-header">
             <h2 class="account-owner">Bob</h2>
-            <span class="account-badge">Active</span>
           </div>
         role: solution
         explanations:
           - body: |
-              Correctly wraps the heading `<h2>` and status badge `<span>` inside the `account-header` division.
-  - type: block
-    location:
-      snippet: |2-
-          <div class="account-body">
-            <label class="balance-label">Current Balance</label>
-            <div class="balance-amount">$250.00</div>
-          </div>
-    choices:
+              Correct! Uses an `<h2>` heading element for the account owner name in the card header.
       - snippet: |-
-          <div class="account-body">
-            <label class="balance-label">Current Balance</label>
-            <div class="balance-amount">$250.00</div>
-          </div>
-        role: solution
-        explanations:
-          - body: |
-              Correctly pairs the balance descriptor label with the numerical balance amount display.
-  - type: block
-    location:
-      snippet: |2-
-          <div class="account-actions">
-            <button class="btn btn-deposit" id="btn-deposit">Deposit $100</button>
-            <button class="btn btn-withdraw" id="btn-withdraw">Withdraw $50</button>
-          </div>
-    choices:
-      - snippet: |-
-          <div class="account-actions">
-            <button class="btn btn-deposit" id="btn-deposit">Deposit $100</button>
-            <button class="btn btn-withdraw" id="btn-withdraw">Withdraw $50</button>
-          </div>
-        role: solution
-        explanations:
-          - body: |
-              Correctly wraps both transaction action buttons inside the `account-actions` container.
-      - snippet: |-
-          <div class="account-actions">
-            <input type="button" value="Deposit $100">
-            <input type="button" value="Withdraw $50">
+          <div class="account-header">
+            <span class="account-owner">Bob</span>
           </div>
         role: distractor
         explanations:
           - body: |
-              While `<input type="button">` exists, modern standard web design prefers `<button>` for richer content and CSS pseudo-element customization.
+              Incorrect. Using an inline `<span>` instead of a heading element (`<h2>`) degrades document outline semantics and screen reader accessibility.
+  - type: block
+    group: card-sections
+    location:
+      snippet: |-
+          <div class="account-transactions">
+            <p class="transaction-deposit">Deposited 100</p>
+            <p class="transaction-withdraw">Withdrew 50</p>
+          </div>
+    choices:
+      - snippet: |-
+          <div class="account-transactions">
+            <p class="transaction-deposit">Deposited 100</p>
+            <p class="transaction-withdraw">Withdrew 50</p>
+          </div>
+        role: solution
+        explanations:
+          - body: |
+              Correct! Lists the chronological events with the deposit of 100 preceding the withdrawal of 50.
+      - snippet: |-
+          <div class="account-transactions">
+            <p class="transaction-withdraw">Withdrew 50</p>
+            <p class="transaction-deposit">Deposited 100</p>
+          </div>
+        role: distractor
+        explanations:
+          - body: |
+              Incorrect. The transaction sequence has been inverted: the deposit occurred before the withdrawal.
+  - type: block
+    group: card-sections
+    location:
+      snippet: |-
+          <div class="account-balance">
+            <p class="balance-output">Balance: 250</p>
+          </div>
+    choices:
+      - snippet: |-
+          <div class="account-balance">
+            <p class="balance-output">Balance: 250</p>
+          </div>
+        role: solution
+        explanations:
+          - body: |
+              Correct! Displays the final calculated balance of 250.
+      - snippet: |-
+          <div class="account-balance">
+            <p class="balance-output">Balance: 150</p>
+          </div>
+        role: distractor
+        explanations:
+          - body: |
+              Incorrect. 150 is the wrong balance amount (200 + 100 - 50 = 250).
+  - type: block
+    group: card-sections
+    location:
+      snippet: |-
+          <div class="account-actions">
+            <button class="btn btn-deposit" id="btn-deposit">Deposit 100</button>
+            <button class="btn btn-withdraw" id="btn-withdraw">Withdraw 50</button>
+          </div>
+    choices:
+      - snippet: |-
+          <div class="account-actions">
+            <button class="btn btn-deposit" id="btn-deposit">Deposit 100</button>
+            <button class="btn btn-withdraw" id="btn-withdraw">Withdraw 50</button>
+          </div>
+        role: solution
+        explanations:
+          - body: |
+              Correct! Provides native interactive `<button>` elements with descriptive IDs.
+      - snippet: |-
+          <div class="account-actions">
+            <div class="btn btn-deposit" id="btn-deposit">Deposit 100</div>
+            <div class="btn btn-withdraw" id="btn-withdraw">Withdraw 50</div>
+          </div>
+        role: distractor
+        explanations:
+          - body: |
+              Incorrect. Using generic `<div>` tags for interactive controls causes severe accessibility problems because they lack keyboard focus and button semantics.

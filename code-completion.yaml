@@ -2,9 +2,9 @@ $schema: https://learning-contents.org/schemas/code-completion/0.1.0
 source: index.html
 license: MIT
 locale: en-US
-id: cc_bank_account_html
-title: Complete the Bank Account Card
-description: Fill in the missing HTML elements and attributes to complete the component.
+id: cc_bank_account
+title: Complete the BankAccount HTML Markup
+description: Fill in essential HTML5 tags, CSS class names, and content values to build an accessible bank account card component.
 authors:
   - first: Jone
     last: Doe
@@ -13,56 +13,150 @@ authors:
 pedagogy:
   activity: code-completion
   difficulty: novice
-  prereq_topics: []
+  prereq_topics:
+    - html5-basics
+    - semantic-html
   topics:
     - html5
-    - semantic-web
+    - semantics
+    - accessibility
+    - dom
+    - ui-components
 runtime:
   language: html
 statement: |
-  Complete the `BankAccount` HTML component markup by filling in the missing tags and text. Focus on:
-  - Specifying the account owner heading (`<h2>`)
-  - Specifying the current balance label and amount
-  - Ensuring the deposit action uses a semantic `<button>`
+  Complete the `BankAccount` HTML card component by selecting the correct HTML tags, CSS classes, and numerical values.
+  Make sure to:
+  1. Use appropriate heading tags for the account owner.
+  2. Apply the correct CSS class for positive deposit transaction logs.
+  3. Specify the final computed balance amount.
+  4. Use semantic action elements for the transaction trigger buttons.
 executions:
-  - title: Rendered Card Component
+  - title: Bob's Account
     stdin: []
     stdout: |-
-      Bob Active Current Balance $250.00 Deposit $100 Withdraw $50
+      Bob
+      Deposited 100
+      Withdrew 50
+      Balance: 250
+      Deposit 100
+      Withdraw 50
     console: |-
-      Bob Active Current Balance $250.00 Deposit $100 Withdraw $50
+      Bob
+      Deposited 100
+      Withdrew 50
+      Balance: 250
+      Deposit 100
+      Withdraw 50
     stderr: ""
     status: pass
 elements:
+  - type: fold
+    location:
+      pattern: "<style>[\\s\\S]*?<\\/style>"
+    summary: "🎨 CSS Styles (<style>)"
+    collapsed: true
   - type: blank
     location:
       context: "<h2 class=\"account-owner\">Bob</h2>"
-      snippet: "<h2 class=\"account-owner\">Bob</h2>"
+      snippet: "h2"
       nth: 1
     choices:
-      - snippet: "<h2 class=\"account-owner\">Bob</h2>"
+      - snippet: "h2"
         role: solution
         explanations:
           - body: |
-              Use a semantic `<h2>` heading element with the descriptive class `account-owner` to display the account holder's name.
-      - snippet: "<div class=\"account-owner\">Bob</div>"
+              Correct! An `<h2>` heading element establishes semantic hierarchy for the account owner name within the component card.
+      - snippet: "p"
         role: distractor
         explanations:
           - body: |
-              A generic `<div>` loses important document heading hierarchy and semantic accessibility for screen readers.
+              Incorrect. `<p>` denotes a standard paragraph block and lacks the semantic heading hierarchy needed for card titles.
+      - snippet: "span"
+        role: distractor
+        explanations:
+          - body: |
+              Incorrect. `<span>` is an inline text container without block structure or heading semantics.
+      - snippet: "div"
+        role: distractor
+        explanations:
+          - body: |
+              Incorrect. `<div>` is a generic non-semantic container that provides no outline or accessibility roles.
   - type: blank
     location:
-      context: "<button class=\"btn btn-deposit\" id=\"btn-deposit\">Deposit $100</button>"
-      snippet: "<button class=\"btn btn-deposit\" id=\"btn-deposit\">Deposit $100</button>"
+      context: "<p class=\"transaction-deposit\">Deposited 100</p>"
+      snippet: "transaction-deposit"
       nth: 1
     choices:
-      - snippet: "<button class=\"btn btn-deposit\" id=\"btn-deposit\">Deposit $100</button>"
+      - snippet: "transaction-deposit"
         role: solution
         explanations:
           - body: |
-              Use a native `<button>` element with appropriate CSS classes and ID to enable interactive deposit transactions.
-      - snippet: "<a href=\"#\" class=\"btn btn-deposit\">Deposit $100</a>"
+              Correct! The `.transaction-deposit` class styles the deposit confirmation with green text.
+      - snippet: "transaction-withdraw"
         role: distractor
         explanations:
           - body: |
-              Anchor tags (`<a>`) represent navigational hyperlinks to other URLs, whereas actions triggering state changes (like deposits) should use `<button>`.
+              Incorrect. The `.transaction-withdraw` class styles debits in red, which is inappropriate for a deposit.
+      - snippet: "account-owner"
+        role: distractor
+        explanations:
+          - body: |
+              Incorrect. The `.account-owner` class is meant for styling the heading title, not transaction feed items.
+      - snippet: "btn"
+        role: distractor
+        explanations:
+          - body: |
+              Incorrect. `.btn` is a button styling utility, not a transaction log class.
+  - type: blank
+    location:
+      context: "<p class=\"balance-output\">Balance: 250</p>"
+      snippet: "250"
+      nth: 1
+    choices:
+      - snippet: "250"
+        role: solution
+        explanations:
+          - body: |
+              Correct! Starting balance (200) + deposit (100) - withdrawal (50) equals 250.
+      - snippet: "150"
+        role: distractor
+        explanations:
+          - body: |
+              Incorrect. This would subtract the deposit instead of adding it (200 - 100 + 50 = 150).
+      - snippet: "300"
+        role: distractor
+        explanations:
+          - body: |
+              Incorrect. 300 only accounts for the deposit (200 + 100) while omitting the withdrawal of 50.
+      - snippet: "200"
+        role: distractor
+        explanations:
+          - body: |
+              Incorrect. 200 is the initial balance before any transactions occurred.
+  - type: blank
+    location:
+      context: "<button class=\"btn btn-deposit\" id=\"btn-deposit\">Deposit 100</button>"
+      snippet: "button"
+      nth: 1
+    choices:
+      - snippet: "button"
+        role: solution
+        explanations:
+          - body: |
+              Correct! The `<button>` element provides built-in keyboard focus, screen reader accessibility, and click dispatching.
+      - snippet: "a"
+        role: distractor
+        explanations:
+          - body: |
+              Incorrect. An `<a>` anchor element is intended for document navigation (hyperlinks), not for stateful UI actions.
+      - snippet: "div"
+        role: distractor
+        explanations:
+          - body: |
+              Incorrect. Generic `<div>` tags are non-semantic and not keyboard accessible without extensive ARIA configuration.
+      - snippet: "input"
+        role: distractor
+        explanations:
+          - body: |
+              Incorrect. An `<input>` element does not wrap text content (`Deposit 100</...>`) like a standard container tag.
