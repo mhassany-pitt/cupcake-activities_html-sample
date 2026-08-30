@@ -1,27 +1,29 @@
-$schema: https://learning-contents.org/schemas/worked-example/0.1.0
+---
+"$schema": https://learning-contents.org/schemas/worked-example/0.1.0
 source: index.html
 license: MIT
 locale: en-US
 id: we_bank_account
 title: Bank Account UI Component in HTML5
-description: Learn how to structure a semantic, accessible bank account UI card with transaction histories, balance displays, and action triggers in HTML5.
+description: Learn how to structure a semantic, accessible bank account UI card with
+  transaction histories, balance displays, and action triggers in HTML5.
 authors:
-  - first: Jone
-    last: Doe
-    email: jone.doe@example.com
-    affiliation: University of John Doe
+- first: Jone
+  last: Doe
+  email: jone.doe@example.com
+  affiliation: University of John Doe
 pedagogy:
   activity: worked-example
   difficulty: novice
   prereq_topics:
-    - html5-basics
-    - semantic-html
+  - html5-basics
+  - semantic-html
   topics:
-    - html5
-    - semantics
-    - accessibility
-    - dom
-    - ui-components
+  - html5
+  - semantics
+  - accessibility
+  - dom
+  - ui-components
 runtime:
   language: html
 statement: |
@@ -31,73 +33,73 @@ statement: |
   3. The final balance presentation element.
   4. Semantic interactive `<button>` elements for triggering transactions.
 executions:
-  - title: Bob's Account
-    stdin: []
-    stdout: |-
-      Bob
-      Deposited 100
-      Withdrew 50
-      Balance: 250
-      Deposit 100
-      Withdraw 50
-    console: |-
-      Bob
-      Deposited 100
-      Withdrew 50
-      Balance: 250
-      Deposit 100
-      Withdraw 50
-    status: pass
+- title: Bob's Account
+  stdin: []
+  stdout: |-
+    Bob
+    Deposited 100
+    Withdrew 50
+    Balance: 250
+    Deposit 100
+    Withdraw 50
+  console: |-
+    Bob
+    Deposited 100
+    Withdrew 50
+    Balance: 250
+    Deposit 100
+    Withdraw 50
+  status: pass
 elements:
-  - type: fold
-    location:
-      pattern: "<style>[\\s\\S]*?<\\/style>"
-    summary: "🎨 CSS Styles (<style>)"
-    collapsed: true
-  - type: explanation
-    location:
-      snippet: |-
-        <div class="bank-account" id="account-card">
-          <div class="account-header">
-            <h2 class="account-owner">Bob</h2>
-          </div>
-    explanations:
-      - body: |
-          ### 1. Card Container and Header
-          * `<div class="bank-account" id="account-card">`: Acts as the parent container component with a semantic ID for DOM targeting and styling.
-          * `<h2 class="account-owner">Bob</h2>`: Uses an `<h2>` heading element to establish an accessible content hierarchy, declaring the account owner.
-  - type: explanation
-    location:
-      snippet: |-
-          <div class="account-transactions">
-            <p class="transaction-deposit">Deposited 100</p>
-            <p class="transaction-withdraw">Withdrew 50</p>
-          </div>
-    explanations:
-      - body: |
-          ### 2. Transaction History Feed
-          * `<div class="account-transactions">`: Groups the chronological log of account activities.
-          * `<p class="transaction-deposit">Deposited 100</p>`: Confirms a credit of 100 with semantic class styling for green positive amounts.
-          * `<p class="transaction-withdraw">Withdrew 50</p>`: Confirms a debit of 50 with class styling for red negative amounts.
-  - type: explanation
-    location:
-      snippet: |-
-          <div class="account-balance">
-            <p class="balance-output">Balance: 250</p>
-          </div>
-    explanations:
-      - body: |
-          ### 3. Balance Presentation
-          * `<p class="balance-output">Balance: 250</p>`: Formats the resulting account balance after initial funds (200) + deposit (100) - withdrawal (50) = 250.
-  - type: explanation
-    location:
-      snippet: |-
-          <div class="account-actions">
-            <button class="btn btn-deposit" id="btn-deposit">Deposit 100</button>
-            <button class="btn btn-withdraw" id="btn-withdraw">Withdraw 50</button>
-          </div>
-    explanations:
-      - body: |
-          ### 4. Interactive Action Buttons
-          * `<button>` elements: Native HTML interactive elements providing built-in keyboard navigation (Tab/Enter/Space), screen reader focus, and click dispatching.
-          * `id="btn-deposit"` and `id="btn-withdraw"`: Unique element IDs enabling JavaScript event listeners to attach transaction handlers.
+- type: fold
+  location:
+    pattern: "<style>[\\s\\S]*?<\\/style>"
+  summary: "\U0001F3A8 CSS Styles (<style>)"
+  collapsed: true
+- type: explanation
+  location:
+    snippet: |-
+      <div class="bank-account" id="account-card">
+        <div class="account-header">
+          <h2 class="account-owner">Bob</h2>
+        </div>
+  explanations:
+  - body: |
+      ### 1. Card Container and Header
+      * `<div class="bank-account" id="account-card">`: Acts as the parent container component with a semantic ID for DOM targeting and styling.
+      * `<h2 class="account-owner">Bob</h2>`: Uses an `<h2>` heading element to establish an accessible content hierarchy, declaring the account owner.
+- type: explanation
+  location:
+    snippet: |2-
+        <div class="account-transactions">
+          <p class="transaction-deposit">Deposited 100</p>
+          <p class="transaction-withdraw">Withdrew 50</p>
+        </div>
+  explanations:
+  - body: |
+      ### 2. Transaction History Feed
+      * `<div class="account-transactions">`: Groups the chronological log of account activities.
+      * `<p class="transaction-deposit">Deposited 100</p>`: Confirms a credit of 100 with semantic class styling for green positive amounts.
+      * `<p class="transaction-withdraw">Withdrew 50</p>`: Confirms a debit of 50 with class styling for red negative amounts.
+- type: explanation
+  location:
+    snippet: |2-
+        <div class="account-balance">
+          <p class="balance-output">Balance: 250</p>
+        </div>
+  explanations:
+  - body: |
+      ### 3. Balance Presentation
+      * `<p class="balance-output">Balance: 250</p>`: Formats the resulting account balance after initial funds (200) + deposit (100) - withdrawal (50) = 250.
+- type: explanation
+  location:
+    snippet: |2-
+        <div class="account-actions">
+          <button class="btn btn-deposit" id="btn-deposit">Deposit 100</button>
+          <button class="btn btn-withdraw" id="btn-withdraw">Withdraw 50</button>
+        </div>
+  explanations:
+  - body: |
+      ### 4. Interactive Action Buttons
+      * `<button>` elements: Native HTML interactive elements providing built-in keyboard navigation (Tab/Enter/Space), screen reader focus, and click dispatching.
+      * `id="btn-deposit"` and `id="btn-withdraw"`: Unique element IDs enabling JavaScript event listeners to attach transaction handlers.
