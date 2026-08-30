@@ -48,114 +48,114 @@ executions:
       Balance: 250
       Deposit 100
       Withdraw 50
-    stderr: ""
+    stderr: ''
     status: pass
 elements:
   - type: fold
     location:
-      pattern: "<style>[\\s\\S]*?<\\/style>"
-    summary: "🎨 CSS Styles (<style>)"
+      pattern: <style>[\s\S]*?<\/style>
+    summary: 🎨 CSS Styles (<style>)
     collapsed: true
   - type: blank
     location:
-      context: "<h2 class=\"account-owner\">Bob</h2>"
-      snippet: "h2"
+      context: <h2 class="account-owner">Bob</h2>
+      snippet: h2
       nth: 1
     choices:
-      - snippet: "h2"
+      - snippet: h2
         role: solution
         explanations:
           - body: |
               Correct! An `<h2>` heading element establishes semantic hierarchy for the account owner name within the component card.
-      - snippet: "p"
+      - snippet: p
         role: distractor
         explanations:
           - body: |
               Incorrect. `<p>` denotes a standard paragraph block and lacks the semantic heading hierarchy needed for card titles.
-      - snippet: "span"
+      - snippet: span
         role: distractor
         explanations:
           - body: |
               Incorrect. `<span>` is an inline text container without block structure or heading semantics.
-      - snippet: "div"
+      - snippet: div
         role: distractor
         explanations:
           - body: |
               Incorrect. `<div>` is a generic non-semantic container that provides no outline or accessibility roles.
   - type: blank
     location:
-      context: "<p class=\"transaction-deposit\">Deposited 100</p>"
-      snippet: "transaction-deposit"
+      context: <p class="transaction-deposit">Deposited 100</p>
+      snippet: transaction-deposit
       nth: 1
     choices:
-      - snippet: "transaction-deposit"
+      - snippet: transaction-deposit
         role: solution
         explanations:
           - body: |
               Correct! The `.transaction-deposit` class styles the deposit confirmation with green text.
-      - snippet: "transaction-withdraw"
+      - snippet: transaction-withdraw
         role: distractor
         explanations:
           - body: |
               Incorrect. The `.transaction-withdraw` class styles debits in red, which is inappropriate for a deposit.
-      - snippet: "account-owner"
+      - snippet: account-owner
         role: distractor
         explanations:
           - body: |
               Incorrect. The `.account-owner` class is meant for styling the heading title, not transaction feed items.
-      - snippet: "btn"
+      - snippet: btn
         role: distractor
         explanations:
           - body: |
               Incorrect. `.btn` is a button styling utility, not a transaction log class.
   - type: blank
     location:
-      context: "<p class=\"balance-output\">Balance: 250</p>"
-      snippet: "balance-output"
+      context: '<p class="balance-output">Balance: 250</p>'
+      snippet: balance-output
       nth: 1
     choices:
-      - snippet: "balance-output"
+      - snippet: balance-output
         role: solution
         explanations:
           - body: |
               Correct! The `.balance-output` class formats the resulting account balance with prominent bold styling.
-      - snippet: "account-owner"
+      - snippet: account-owner
         role: distractor
         explanations:
           - body: |
               Incorrect. `.account-owner` is intended for the card heading, not for the balance readout.
-      - snippet: "transaction-deposit"
+      - snippet: transaction-deposit
         role: distractor
         explanations:
           - body: |
               Incorrect. `.transaction-deposit` is used for individual deposit logs, not the total balance display.
-      - snippet: "account-actions"
+      - snippet: account-actions
         role: distractor
         explanations:
           - body: |
               Incorrect. `.account-actions` is a container class for grouping action buttons.
   - type: blank
     location:
-      context: "<button class=\"btn btn-deposit\" id=\"btn-deposit\">Deposit 100</button>"
-      snippet: "button"
+      context: <button class="btn btn-deposit" id="btn-deposit">Deposit 100</button>
+      snippet: button
       nth: 1
     choices:
-      - snippet: "button"
+      - snippet: button
         role: solution
         explanations:
           - body: |
               Correct! The `<button>` element provides built-in keyboard focus, screen reader accessibility, and click dispatching.
-      - snippet: "a"
+      - snippet: a
         role: distractor
         explanations:
           - body: |
               Incorrect. An `<a>` anchor element is intended for document navigation (hyperlinks), not for stateful UI actions.
-      - snippet: "div"
+      - snippet: div
         role: distractor
         explanations:
           - body: |
               Incorrect. Generic `<div>` tags are non-semantic and not keyboard accessible without extensive ARIA configuration.
-      - snippet: "input"
+      - snippet: input
         role: distractor
         explanations:
           - body: |

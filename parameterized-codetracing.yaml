@@ -33,16 +33,25 @@ statement: |
 elements:
   - type: parameter
     location:
-      context: '<h2 class="account-owner">Bob</h2>'
-      snippet: "Bob"
-    values: ['Bob', 'Alice', 'Charlie']
+      context: <h2 class="account-owner">Bob</h2>
+      snippet: Bob
+    values:
+      - Bob
+      - Alice
+      - Charlie
   - type: parameter
     location:
-      context: '<p class="transaction-deposit">Deposited 100</p>'
-      snippet: "100"
-    values: ['50', '100', '200']
+      context: <p class="transaction-deposit">Deposited 100</p>
+      snippet: '100'
+    values:
+      - '50'
+      - '100'
+      - '200'
   - type: parameter
     location:
       context: '<p class="balance-output">Balance: 250</p>'
-      snippet: "250"
-    values: ['150', '250', '350']
+      snippet: '250'
+    values:
+      - '150'
+      - '250'
+      - '350'
