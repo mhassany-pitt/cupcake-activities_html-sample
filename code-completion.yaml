@@ -24,6 +24,7 @@ pedagogy:
     - ui-components
 runtime:
   language: html
+  version: 5
 statement: |
   Complete the `BankAccount` HTML card component by selecting the correct HTML tags, CSS classes, and numerical values.
   Make sure to:
@@ -31,8 +32,9 @@ statement: |
   2. Apply the correct CSS class for positive deposit transaction logs.
   3. Specify the final computed balance amount.
   4. Use semantic action elements for the transaction trigger buttons.
-executions:
+testcases:
   - title: Bob's Account
+    visible: true
     stdin: []
     stdout: |-
       Bob
@@ -48,8 +50,17 @@ executions:
       Balance: 250
       Deposit 100
       Withdraw 50
-    stderr: ''
     status: pass
+    hints:
+      - "Review the blanks and ensure the operations match the expected transaction flow."
+      - "Pay attention to conditional checks and return or print statements."
+    feedback:
+      - on_pass:
+          - explanations:
+              - "Great job! All blanks were completed correctly and produced the expected output."
+        on_fail:
+          - explanations:
+              - "One or more blanks are incorrect. Check the expected output and verify your selections."
 elements:
   - type: fold
     location:

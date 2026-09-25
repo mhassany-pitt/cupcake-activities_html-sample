@@ -24,6 +24,7 @@ pedagogy:
     - ui-components
 runtime:
   language: html
+  version: 5
 statement: |
   Rearrange the HTML blocks to correctly construct the `BankAccount` card component.
   Make sure to:
@@ -31,8 +32,10 @@ statement: |
   2. Record the chronological transactions (deposit first, then withdrawal).
   3. Display the computed final balance.
   4. Include accessible interactive action buttons.
-executions:
+testcases:
   - title: Standard Transaction
+    visible: true
+    stdin: []
     stdout: |-
       Bob
       Deposited 100
@@ -48,6 +51,16 @@ executions:
       Deposit 100
       Withdraw 50
     status: pass
+    hints:
+      - "Arrange the code blocks in logical sequential order from initialization to final output."
+      - "Ensure correct block indentation where applicable."
+    feedback:
+      - on_pass:
+          - explanations:
+              - "Correct! All blocks are sequenced properly to produce the expected output."
+        on_fail:
+          - explanations:
+              - "The block ordering or indentation is incorrect. Re-examine the flow of execution."
 elements:
   - type: fold
     location:
@@ -67,6 +80,7 @@ elements:
               <h2 class="account-owner">Bob</h2>
             </div>
         role: solution
+        indent: 0
         explanations:
           - body: |
               Correct! Uses an `<h2>` heading element for the account owner name in the card header.
@@ -93,6 +107,7 @@ elements:
               <p class="transaction-withdraw">Withdrew 50</p>
             </div>
         role: solution
+        indent: 0
         explanations:
           - body: |
               Correct! Lists the chronological events with the deposit of 100 preceding the withdrawal of 50.
@@ -109,6 +124,7 @@ elements:
               <p class="balance-output">Balance: 250</p>
             </div>
         role: solution
+        indent: 0
         explanations:
           - body: |
               Correct! Displays the final calculated balance of 250.
@@ -127,6 +143,7 @@ elements:
               <button class="btn btn-withdraw" id="btn-withdraw">Withdraw 50</button>
             </div>
         role: solution
+        indent: 0
         explanations:
           - body: |
               Correct! Provides native interactive `<button>` elements with descriptive IDs.
