@@ -31,6 +31,9 @@ statement: |
   * The owner name rendered in the `<h2>` header.
   * The transaction amounts logged in the `<p class="transaction-deposit">` element.
   * The final balance string rendered in `<p class="balance-output">`.
+hints:
+  - "Trace the parameter values step-by-step through each statement."
+  - "Check if the withdrawal amount exceeds the balance to determine which branch executes."
 testcases:
   - title: Standard Trace Execution
     visible: true
@@ -50,16 +53,11 @@ testcases:
       Deposit 100
       Withdraw 50
     status: pass
-    hints:
-      - "Trace the parameter values step-by-step through each statement."
-      - "Check if the withdrawal amount exceeds the balance to determine which branch executes."
     feedback:
-      - on_pass:
-          - explanations:
-              - "Correct trace! You tracked the state transitions and outputs accurately."
-        on_fail:
-          - explanations:
-              - "Your trace output did not match. Trace each parameter update carefully."
+      on_pass:
+        - "Correct trace! You tracked the state transitions and outputs accurately."
+      on_fail:
+        - "Your trace output did not match. Trace each parameter update carefully."
 elements:
   - type: parameter
     location:

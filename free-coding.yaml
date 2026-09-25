@@ -30,6 +30,9 @@ statement: |
   1. Add an `<div class="account-transactions">` section with `<p class="transaction-deposit">Deposited 100</p>` and `<p class="transaction-withdraw">Withdrew 50</p>`.
   2. Add an `<div class="account-balance">` section with `<p class="balance-output">Balance: 250</p>`.
   3. Add an `<div class="account-actions">` section with interactive `<button>` elements for `id="btn-deposit"` ("Deposit 100") and `id="btn-withdraw"` ("Withdraw 50").
+hints:
+  - "Review the problem statement and ensure the steps are executed in order."
+  - "Verify that initial values, deposits, withdrawals, and prints match the specification."
 elements:
   - type: fold
     location:
@@ -149,13 +152,8 @@ testcases:
       Deposit 100
       Withdraw 50
     status: pass
-    hints:
-      - "Review the problem statement and ensure the steps are executed in order."
-      - "Verify that initial values, deposits, withdrawals, and prints match the specification."
     feedback:
-      - on_pass:
-          - explanations:
-              - "Great job! Your solution executed properly and matched all expected outputs."
-        on_fail:
-          - explanations:
-              - "Your code produced differing output. Double-check your method calls and printed formatting."
+      on_pass:
+        - "Great job! Your solution executed properly and matched all expected outputs."
+      on_fail:
+        - "Your code produced differing output. Double-check your method calls and printed formatting."

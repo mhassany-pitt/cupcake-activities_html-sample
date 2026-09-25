@@ -32,6 +32,9 @@ statement: |
   2. Record the chronological transactions (deposit first, then withdrawal).
   3. Display the computed final balance.
   4. Include accessible interactive action buttons.
+hints:
+  - "Arrange the code blocks in logical sequential order from initialization to final output."
+  - "Ensure correct block indentation where applicable."
 testcases:
   - title: Standard Transaction
     visible: true
@@ -51,16 +54,11 @@ testcases:
       Deposit 100
       Withdraw 50
     status: pass
-    hints:
-      - "Arrange the code blocks in logical sequential order from initialization to final output."
-      - "Ensure correct block indentation where applicable."
     feedback:
-      - on_pass:
-          - explanations:
-              - "Correct! All blocks are sequenced properly to produce the expected output."
-        on_fail:
-          - explanations:
-              - "The block ordering or indentation is incorrect. Re-examine the flow of execution."
+      on_pass:
+        - "Correct! All blocks are sequenced properly to produce the expected output."
+      on_fail:
+        - "The block ordering or indentation is incorrect. Re-examine the flow of execution."
 elements:
   - type: fold
     location:
